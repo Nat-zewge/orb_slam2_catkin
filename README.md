@@ -1,4 +1,5 @@
-# orb_slam2_catkin
+# orb_slam2_catkin 
+# modified to work with catkin Natnael S. Zewge
 
 **Authors:** [Raul Mur-Artal](http://webdiis.unizar.es/~raulmur/), [Juan D. Tardos](http://webdiis.unizar.es/~jdtardos/), [J. M. M. Montiel](http://webdiis.unizar.es/~josemari/) and [Dorian Galvez-Lopez](http://doriangalvez.com/) ([DBoW2](https://github.com/dorian3d/DBoW2))
 
@@ -96,22 +97,16 @@ We provide some examples to process the live input of a monocular, stereo or RGB
 For a monocular input from topic `/camera/image_raw` run node ORB_SLAM2/Mono. You will need to provide the vocabulary file and a settings file. See the monocular examples above.
 
   ```
-  rosrun ORB_SLAM2 Mono PATH_TO_VOCABULARY PATH_TO_SETTINGS_FILE
+  rosrun orb_slam2_catkin Mono PATH_TO_VOCABULARY PATH_TO_SETTINGS_FILE
   ```
   
-### Running Monocular Augmented Reality Demo
-This is a demo of augmented reality where you can use an interface to insert virtual cubes in planar regions of the scene.
-The node reads images from topic `/camera/image_raw`.
 
-  ```
-  rosrun ORB_SLAM2 MonoAR PATH_TO_VOCABULARY PATH_TO_SETTINGS_FILE
-  ```
   
 ### Running Stereo Node
 For a stereo input from topic `/camera/left/image_raw` and `/camera/right/image_raw` run node ORB_SLAM2/Stereo. You will need to provide the vocabulary file and a settings file. If you **provide rectification matrices** (see Examples/Stereo/EuRoC.yaml example), the node will recitify the images online, **otherwise images must be pre-rectified**.
 
   ```
-  rosrun ORB_SLAM2 Stereo PATH_TO_VOCABULARY PATH_TO_SETTINGS_FILE ONLINE_RECTIFICATION
+  rosrun orb_slam2_catkin Stereo PATH_TO_VOCABULARY PATH_TO_SETTINGS_FILE ONLINE_RECTIFICATION
   ```
   
 **Example**: Download a rosbag (e.g. V1_01_easy.bag) from the EuRoC dataset (http://projects.asl.ethz.ch/datasets/doku.php?id=kmavvisualinertialdatasets). Open 3 tabs on the terminal and run the following command at each tab:
@@ -134,6 +129,8 @@ For an RGB-D input from topics `/camera/rgb/image_raw` and `/camera/depth_regist
 
   ```
   rosrun ORB_SLAM2 RGBD PATH_TO_VOCABULARY PATH_TO_SETTINGS_FILE
+  a launch file is provided for RGBD node:
+  roslaunch orb_slam2_catkin orb_slam.launch
   ```
   
 # 8. Processing your own sequences

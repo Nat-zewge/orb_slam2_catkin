@@ -13,7 +13,6 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   sensor_msgs
   tf
-  roslaunch
 )
 
 IF(NOT CMAKE_BUILD_TYPE)
@@ -177,7 +176,7 @@ ${PROJECT_SOURCE_DIR}/Thirdparty/g2o/lib/libg2o.so
 )
 
 
-roslaunch_add_file_check(launch)
+
 
 
 
